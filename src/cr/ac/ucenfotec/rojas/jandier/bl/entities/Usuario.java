@@ -1,4 +1,4 @@
-package cr.ac.ucenfotec.bl.entities;
+package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 public class Usuario {
     private String nombreCompleto;
