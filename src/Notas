@@ -1,0 +1,5 @@
+10/24 --> Viernes:
+--->He arreglado el problema con el Jar. Ahora, para que se actualice las clases de la libreria en el UI, solo debo de build
+    en domain.
+--->Ya he agregado los metodos de registrarUsuario e imprimirUsuario con base a la logica.
+--->Solo queda seguir trabajando con los siguientes metodos en relacion con el menu.
