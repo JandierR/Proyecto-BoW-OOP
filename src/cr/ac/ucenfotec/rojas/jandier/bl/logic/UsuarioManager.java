@@ -18,4 +18,8 @@ public class UsuarioManager {
         listaUsuario.add(new Usuario(nombre, correo, contrasena, telefono, rol));
 
     }
+
+    public List<Usuario> getListaUsuario() {
+        return listaUsuario;
+    }
 }
