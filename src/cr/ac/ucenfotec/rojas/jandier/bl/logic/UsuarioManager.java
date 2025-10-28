@@ -22,4 +22,13 @@ public class UsuarioManager {
     public List<Usuario> getListaUsuario() {
         return listaUsuario;
     }
+
+    public Usuario buscarUsuarioPorCorreo(List<Usuario> listaUsuario, String correo) {
+        for (Usuario usuario : listaUsuario) {
+            if (usuario.getCorreo().equalsIgnoreCase(correo)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
 }

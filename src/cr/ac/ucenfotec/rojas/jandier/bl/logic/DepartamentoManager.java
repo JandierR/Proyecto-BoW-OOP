@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DepartamentoManager {
 
-    List<Departamento> listaDepartamento;
+    private List<Departamento> listaDepartamento;
 
     public DepartamentoManager() {
 
@@ -23,5 +23,14 @@ public class DepartamentoManager {
 
     public List<Departamento> getListaDepartamento() {
         return listaDepartamento;
+    }
+
+    public Departamento buscarDepartamentoPorNombre(List<Departamento> listaDepartamento, String nombre) {
+        for (Departamento departamento : listaDepartamento) {
+            if (departamento.getNombreDepartamento().equalsIgnoreCase(nombre)) {
+                return departamento;
+            }
+        }
+        return null;
     }
 }
