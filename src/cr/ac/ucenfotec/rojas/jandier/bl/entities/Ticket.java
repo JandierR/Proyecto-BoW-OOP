@@ -72,13 +72,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", asunto='" + asunto + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", estado='" + estado + '\'' +
-                ", usuario=" + usuario +
-                ", departamento=" + departamento +
-                '}';
+        return "-Ticket- -->" +
+                "[id = " + id +
+                "]--> [asunto = '" + asunto + '\'' +
+                "]--> [descripción = '" + descripcion + '\'' +
+                "]--> [estado = '" + estado + '\'' +
+                "]--> [usuario = " + usuario +
+                "]--> [departamento = " + departamento +
+                ']';
     }
 }

@@ -7,7 +7,6 @@ public class Usuario {
     private String telefono;
     private String rol;
 
-
     public Usuario(String nombreCompleto, String correo, String contrasena, String telefono, String rol) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
@@ -58,12 +57,12 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nombreCompleto='" + nombreCompleto + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasena='" + contrasena + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", rol='" + rol + '\'' +
-                '}';
+        return "-Usuario- -->" +
+                "[nombreCompleto = '" + nombreCompleto + '\'' +
+                "]--> [correo = '" + correo + '\'' +
+                "]--> [contraseña = '" + contrasena + '\'' +
+                "]--> [teléfono='" + telefono + '\'' +
+                "]--> [rol = '" + rol + '\'' +
+                ']';
     }
 }

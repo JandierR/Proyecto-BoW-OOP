@@ -43,10 +43,10 @@ public class Departamento {
 
     @Override
     public String toString() {
-        return "Departamento{" +
-                "nombreDepartamento='" + nombreDepartamento + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", correo='" + correo + '\'' +
-                '}';
+        return "-Departamento- --> " +
+                "[nombreDepartamento = '" + nombreDepartamento + '\'' +
+                "]--> [descripción = '" + descripcion + '\'' +
+                "]--> [correo = '" + correo + '\'' +
+                ']';
     }
 }
