@@ -17,3 +17,11 @@
         El profesor dijo que mi metodo de buscarUsuarioPorCorreo no debe de retornar un usuario, si no un booleano
         En base a eso, me permitira poner en la condicional en el controller al registrar un usuario, si esa instancia de
         usuario ya existe. Por lo que debo de arreglar esa parte.
+
+
+10/29 --> Miercoles
+---> Tengo que realizar el codigo para el GestorDiccionario tanto emocional como tecnico.
+---> Cada palabra emocional o tecnica se debe de relacionar con el usuario y ticket, en base a sus ID.
+---> En los gestores de diccionarios, se debe de poder agregar las palabras en una lista.
+     Ademas, debe de ser capaz de listar el diccionario segun el ID del tiquete (Tengo que verificar si esta es la manera correcta segun el comportamiento del BoW y HelpDesk)
+
