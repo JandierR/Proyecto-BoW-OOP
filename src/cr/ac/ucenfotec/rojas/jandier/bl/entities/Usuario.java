@@ -6,13 +6,15 @@ public class Usuario {
     private String contrasena;
     private String telefono;
     private String rol;
+    private int id;
 
-    public Usuario(String nombreCompleto, String correo, String contrasena, String telefono, String rol) {
+    public Usuario(String nombreCompleto, String correo, String contrasena, String telefono, String rol, int id) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
         this.rol = rol;
+        this.id = id;
     }
 
     public String getNombreCompleto() {
@@ -55,6 +57,15 @@ public class Usuario {
         this.rol = rol;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "-Usuario- -->" +
@@ -63,6 +74,7 @@ public class Usuario {
                 "]--> [contraseña = '" + contrasena + '\'' +
                 "]--> [teléfono='" + telefono + '\'' +
                 "]--> [rol = '" + rol + '\'' +
+                "]--> [ID = '#" + id + '\'' +
                 ']';
     }
 }

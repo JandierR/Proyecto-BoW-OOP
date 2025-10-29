@@ -6,15 +6,18 @@ public class Departamento {
     private String nombreDepartamento;
     private String descripcion;
     private String correo;
+    private int id;
+
 
     //En la logica, debe de haber una relacion en la que cada departamento puede
     //Tener muchos tickets.
 
 
-    public Departamento(String nombreDepartamento, String descripcion, String correo) {
+    public Departamento(String nombreDepartamento, String descripcion, String correo, int id) {
         this.nombreDepartamento = nombreDepartamento;
         this.descripcion = descripcion;
         this.correo = correo;
+        this.id = id;
     }
 
     public String getNombreDepartamento() {
@@ -41,12 +44,21 @@ public class Departamento {
         this.descripcion = descripcion;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "-Departamento- --> " +
                 "[nombreDepartamento = '" + nombreDepartamento + '\'' +
                 "]--> [descripción = '" + descripcion + '\'' +
                 "]--> [correo = '" + correo + '\'' +
+                "]--> [ID = '#" + id + '\'' +
                 ']';
     }
 }
