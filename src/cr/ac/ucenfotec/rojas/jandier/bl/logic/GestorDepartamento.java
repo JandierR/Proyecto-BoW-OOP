@@ -29,6 +29,10 @@ public class GestorDepartamento {
         return listaDepartamento;
     }
 
+    public void setListaDepartamento(List<Departamento> listaDepartamento) {
+        this.listaDepartamento = listaDepartamento;
+    }
+
     //Este metodo verifica si existe algun departamento de la listaDepartamento con el ID que se pasa como parametro (argumento en ejecucion)
     public boolean existeDepartamento(List<Departamento> listaDepartamento, int id) {
         for (Departamento departamento : listaDepartamento) {
