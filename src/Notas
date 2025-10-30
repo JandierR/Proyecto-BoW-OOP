@@ -23,5 +23,7 @@
 ---> Tengo que realizar el codigo para el GestorDiccionario tanto emocional como tecnico.
 ---> Cada palabra emocional o tecnica se debe de relacionar con el usuario y ticket, en base a sus ID.
 ---> En los gestores de diccionarios, se debe de poder agregar las palabras en una lista.
-     Ademas, debe de ser capaz de listar el diccionario segun el ID del tiquete (Tengo que verificar si esta es la manera correcta segun el comportamiento del BoW y HelpDesk)
+     Ademas, debe de ser capaz de listar el diccionario segun el ID del tiquete
+     (Tengo que verificar si esta es la manera correcta segun el comportamiento del BoW y HelpDesk)
+     *10/30 --> El profesor me aclaro que esta parte del diccionario conformado en CRUD no es para el primer avance*
 
