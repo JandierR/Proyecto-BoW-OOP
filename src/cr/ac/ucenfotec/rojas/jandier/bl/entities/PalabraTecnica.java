@@ -4,6 +4,11 @@ public class PalabraTecnica {
     private String palabra;
     private String categoria;
 
+    public PalabraTecnica(String palabra, String categoria) {
+        this.palabra = palabra;
+        this.categoria = categoria;
+    }
+
     public String getPalabra() {
         return palabra;
     }
