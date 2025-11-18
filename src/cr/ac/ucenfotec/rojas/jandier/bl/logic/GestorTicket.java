@@ -39,6 +39,12 @@ public class GestorTicket {
         if (departamento == null) {
             return "Lo sentimos, este departamento no existe";
         }
+
+        if (!estado.equalsIgnoreCase("Nuevo") &&
+                !estado.equalsIgnoreCase("En progreso") &&
+                !estado.equalsIgnoreCase("Resuelto")) {
+            return "Por favor, ingresar un estado valido";
+        }
         data.agregarTicket(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
         return "Ticket registrado exitosamente";
     }
