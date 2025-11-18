@@ -1,37 +1,42 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
+import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDepartamento {
+    private Data data;
+//    private List<Departamento> listaDepartamento;
 
-    private List<Departamento> listaDepartamento;
+    public GestorDepartamento(Data data) {
 
-    public GestorDepartamento() {
+//        listaDepartamento = new ArrayList<>();
+        this.data = data;
 
-        listaDepartamento = new ArrayList<>();
+    }
+
+    public List<Departamento> obtenerDepartamentos() {
+        return data.getListaDepartamento();
     }
 
     //Este metodo registrarDepartamento se utiliza en la UI, en otro metodo llamado registrarDepartamento.
     //El mismo permite agregar a listaDepartamento el nuevo departamento registrado desde Controller de la UI.
-    public void registrarDepartamento(String nombreDepartamento, String descripcion, String correo, int id) {
+    public String registrarDepartamento(String nombreDepartamento, String descripcion, String correo, int id) {
 
-        //El nombre del departamento debe de ser unico
-        listaDepartamento.add(new Departamento(nombreDepartamento, descripcion, correo, id));
+        boolean existeDepartamento = existeDepartamento(data.getListaDepartamento(), id);
+
+        if (existeDepartamento) {
+            return "Lo sentimos, ya existe este departamento";
+        }
+
+        data.agregarDepartamento(new Departamento(nombreDepartamento, descripcion, correo, id));
+        return "Departamento registrado exitosamente";
 
     }
 
-    //Este metodo de getListaDepartamento es la que se encarga de retornar la listaDepartamento...
-    //en el metodo de la UI, imprimirDepartamento, la cual llama a este metodo y se utiliza para listar departamento.
-    public List<Departamento> getListaDepartamento() {
-        return listaDepartamento;
-    }
 
-    public void setListaDepartamento(List<Departamento> listaDepartamento) {
-        this.listaDepartamento = listaDepartamento;
-    }
+
 
     //Este metodo verifica si existe algun departamento de la listaDepartamento con el ID que se pasa como parametro (argumento en ejecucion)
     public boolean existeDepartamento(List<Departamento> listaDepartamento, int id) {

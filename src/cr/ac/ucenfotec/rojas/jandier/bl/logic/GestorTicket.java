@@ -3,32 +3,44 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Ticket;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
+import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTicket {
-    private List<Ticket> listaTickets;
+//    private List<Ticket> listaTickets;
 
-    public GestorTicket() {
-        listaTickets = new ArrayList<>();
+    private Data data;
+
+    public GestorTicket(Data data) {
+//        listaTickets = new ArrayList<>();
+        this.data = data;
     }
+    public List<Ticket> obtenerTickets() {
+        return data.getListaTickets();
+    }
+
 
     //Este metodo registra los tickets en base a sus atributos ingresados como parametros (argumentos en ejecucion)
-    public void registrarTicket(int id, String asunto, String descripcion, String estado, int idUsuario, int idDepartamento) {
-        GestorUsuario gestorUsuario = new GestorUsuario();
-        GestorDepartamento gestorDepartamento = new GestorDepartamento();
+    public String registrarTicket(int id, String asunto, String descripcion, String estado, int idUsuario, int idDepartamento) {
+        GestorUsuario gestorUsuario = new GestorUsuario(data);
+        GestorDepartamento gestorDepartamento = new GestorDepartamento(data);
 
         //Verifica si existe un usuario con el id ingresado
-        Usuario usuario = gestorUsuario.buscarPorId(gestorUsuario.getListaUsuario(), idUsuario);
+        Usuario usuario = gestorUsuario.buscarPorId(data.getListaUsuario(), idUsuario);
+
+        if (usuario == null) {
+            return "Lo sentimos, este usuario no existe";
+        }
 
         //Verifica si existe un departamento con el id ingresado
-        Departamento departamento = gestorDepartamento.buscarPorId(gestorDepartamento.getListaDepartamento(), idDepartamento);
+        Departamento departamento = gestorDepartamento.buscarPorId(data.getListaDepartamento(), idDepartamento);
 
-        listaTickets.add(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
+        if (departamento == null) {
+            return "Lo sentimos, este departamento no existe";
+        }
+        data.agregarTicket(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
+        return "Ticket registrado exitosamente";
     }
 
-    public List<Ticket> getListaTickets() {
-        return listaTickets;
-    }
 }

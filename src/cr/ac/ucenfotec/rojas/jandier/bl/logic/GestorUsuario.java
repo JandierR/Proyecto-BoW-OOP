@@ -1,28 +1,38 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
+import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GestorUsuario {
 
-    private List<Usuario> listaUsuario;
+    //    private List<Usuario> listaUsuario;
+    private Data data;
 
-    public GestorUsuario() {
-        listaUsuario = new ArrayList<>();
-        //Verificar luego si debo de hacer algun cambio aca en el caso de obtener un bug
+    public GestorUsuario(Data data) {
+//        listaUsuario = new ArrayList<>();
+        this.data = data;
+    }
+
+    public List<Usuario> obtenerUsuarios() {
+        return data.getListaUsuario();
     }
 
     //Este metodo registra los usuarios con base a sus atributos ingresados como parametros (argumentos en ejecuicion)
-    public void registrarUsuario(String nombre, String correo, String contrasena, String telefono, String rol, int id) {
-        listaUsuario.add(new Usuario(nombre, correo, contrasena, telefono, rol, id));
+    public String registrarUsuario(String nombre, String correo, String contrasena, String telefono, String rol, int id) {
 
+        boolean existeUsuario = existeUsuario(data.getListaUsuario(), id);
+
+        if (existeUsuario) {
+            return "Lo sentimos, ya existe este usuario";
+        }
+
+        data.agregarUsuario(new Usuario(nombre, correo, contrasena, telefono, rol, id));
+        return "Usuario registrado exitosamente!";
     }
 
-    public List<Usuario> getListaUsuario() {
-        return listaUsuario;
-    }
+
 
     //Este metodo verifica si existe un usuario en la listaUsuario con el ID pasado como argumento
     public boolean existeUsuario(List<Usuario> listaUsuario, int id) {
