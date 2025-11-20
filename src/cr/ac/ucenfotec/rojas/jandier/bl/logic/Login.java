@@ -15,4 +15,12 @@ public class Login {
 
         return usuario != null && contrasena.equalsIgnoreCase(usuario.getContrasena());
     }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
 }
