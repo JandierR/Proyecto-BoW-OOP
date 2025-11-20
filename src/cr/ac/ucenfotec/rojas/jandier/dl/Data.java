@@ -12,11 +12,13 @@ public class Data {
     private List<Departamento> listaDepartamento;
     private List<Ticket> listaTickets;
     private List<Usuario> listaUsuario;
+    private List<String> contrasenas;
 
     public Data() {
         listaDepartamento = new ArrayList<>();
         listaTickets = new ArrayList<>();
         listaUsuario = new ArrayList<>();
+        contrasenas = new ArrayList<>();
     }
 
     public List<Departamento> getListaDepartamento() {
@@ -41,6 +43,14 @@ public class Data {
 
     public void setListaUsuario(List<Usuario> listaUsuario) {
         this.listaUsuario = listaUsuario;
+    }
+
+    public List<String> getContrasenas() {
+        return contrasenas;
+    }
+
+    public void setContrasenas(List<String> contrasenas) {
+        this.contrasenas = contrasenas;
     }
 
     public void agregarDepartamento(Departamento departamento) {
