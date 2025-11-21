@@ -3,6 +3,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorUsuario {
@@ -15,8 +16,23 @@ public class GestorUsuario {
         this.data = data;
     }
 
-    public List<Usuario> obtenerUsuarios() {
-        return data.getListaUsuario();
+    public GestorUsuario() {
+    }
+
+    //Si pongo retornar lista de tipo String, y data.getListaUsuario().toString, me da error
+    public List<String> obtenerUsuarios() {
+
+        List<String> resultado = new ArrayList<>();
+        if (data.getListaUsuario().isEmpty()) {
+            resultado.add("[Lista vacía]");
+            return resultado;
+        }
+            //En este caso que no este vacia la lista, se imprime sus elementos.
+            for (Usuario usuario : data.getListaUsuario()) {
+                resultado.add(usuario.toString());
+            }
+            return resultado;
+
     }
 
     //Este metodo registra los usuarios con base a sus atributos ingresados como parametros (argumentos en ejecuicion)

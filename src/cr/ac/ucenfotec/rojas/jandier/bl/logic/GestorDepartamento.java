@@ -3,6 +3,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDepartamento {
@@ -16,8 +17,18 @@ public class GestorDepartamento {
 
     }
 
-    public List<Departamento> obtenerDepartamentos() {
-        return data.getListaDepartamento();
+    public List<String> obtenerDepartamentos() {
+
+        List<String> resultado = new ArrayList<>();
+        if (data.getListaDepartamento().isEmpty()) {
+            resultado.add("[Lista vacía]");
+            return resultado;
+        }
+        //En este caso que no este vacia la lista, se imprime sus elementos.
+        for (Departamento departamento : data.getListaDepartamento()) {
+            resultado.add(departamento.toString());
+        }
+        return resultado;
     }
 
     //Este metodo registrarDepartamento se utiliza en la UI, en otro metodo llamado registrarDepartamento.

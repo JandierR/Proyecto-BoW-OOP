@@ -1,8 +1,6 @@
 package cr.ac.ucenfotec.rojas.jandier.dl;
 
-import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
-import cr.ac.ucenfotec.rojas.jandier.bl.entities.Ticket;
-import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
+import cr.ac.ucenfotec.rojas.jandier.bl.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +11,19 @@ public class Data {
     private List<Ticket> listaTickets;
     private List<Usuario> listaUsuario;
     private List<String> contrasenas;
+    private List<PalabraTecnica> listaPalabrasTecnicas;
+    private List<PalabraEmocional> listaPalabrasEmocionales;
 
     public Data() {
         listaDepartamento = new ArrayList<>();
         listaTickets = new ArrayList<>();
         listaUsuario = new ArrayList<>();
         contrasenas = new ArrayList<>();
+        listaPalabrasTecnicas = new ArrayList<>();
+        listaPalabrasEmocionales = new ArrayList<>();
     }
 
+    //No debe de retornar departamento, debe de retornar String segun el profe
     public List<Departamento> getListaDepartamento() {
         return listaDepartamento;
     }
@@ -53,6 +56,22 @@ public class Data {
         this.contrasenas = contrasenas;
     }
 
+    public List<PalabraTecnica> getListaPalabrasTecnicas() {
+        return listaPalabrasTecnicas;
+    }
+
+    public void setListaPalabrasTecnicas(List<PalabraTecnica> listaPalabrasTecnicas) {
+        this.listaPalabrasTecnicas = listaPalabrasTecnicas;
+    }
+
+    public List<PalabraEmocional> getListaPalabrasEmocionales() {
+        return listaPalabrasEmocionales;
+    }
+
+    public void setListaPalabrasEmocionales(List<PalabraEmocional> listaPalabrasEmocionales) {
+        this.listaPalabrasEmocionales = listaPalabrasEmocionales;
+    }
+
     public void agregarDepartamento(Departamento departamento) {
         listaDepartamento.add(departamento);
     }
@@ -63,6 +82,14 @@ public class Data {
 
     public void agregarTicket(Ticket ticket) {
         listaTickets.add(ticket);
+    }
+
+    public void agregarPalabraTecnica(PalabraTecnica palabraTecnica) {
+        listaPalabrasTecnicas.add(palabraTecnica);
+    }
+
+    public void agregarPalabraEmocional(PalabraEmocional palabraEmocional) {
+        listaPalabrasEmocionales.add(palabraEmocional);
     }
 
 }

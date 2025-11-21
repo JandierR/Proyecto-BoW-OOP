@@ -1,10 +1,30 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
+import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
+import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+
+import java.util.List;
+
 public class GestorDiccionarioEmocional {
-    //Con base en lo que el profesor ha indicado,
-    //este Gestor de diccionario no debe de llevar nada en el primer avance,
-    //ya que su implementacion requiere parte del analisis BoW, por lo que, no toma
-    //sitio en este primer avance.
-    //Sin embargo, desde mi logica, este diccionario debe de ir tomado de la mano con
-    //la clase PalabraEmocional, lo cual debo de implementar y estructurar luego en siguientes avances.
+
+    private Data data;
+
+
+    public GestorDiccionarioEmocional(Data data) {
+        this.data = data;
+    }
+
+    public GestorDiccionarioEmocional() {
+    }
+
+    //Tiene que retornar Lista de String o solo String
+    public List<PalabraEmocional> obtenerPalabrasEmocional() {
+        return data.getListaPalabrasEmocionales();
+//        return data.getListaPalabrasEmocionales().toString();
+    }
+
+    public String registrarPalabraEmocional(String palabra, String emocion) {
+        data.agregarPalabraEmocional(new PalabraEmocional(palabra, emocion));
+        return "Palabra emocional registrada exitosamente!";
+    }
 }

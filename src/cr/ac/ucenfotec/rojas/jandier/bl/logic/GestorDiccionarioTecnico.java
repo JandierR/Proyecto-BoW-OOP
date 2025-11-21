@@ -1,10 +1,29 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
+import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
+import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+
+import java.util.List;
+
 public class GestorDiccionarioTecnico {
-    //Con base en lo que el profesor ha indicado,
-    //este Gestor de diccionario no debe de llevar nada en el primer avance,
-    //ya que su implementacion requiere parte del analisis BoW, por lo que, no toma
-    //sitio en este primer avance.
-    //Sin embargo, desde mi logica, este diccionario debe de ir tomado de la mano con
-    //la clase PalabraTecnica, lo cual debo de implementar y estructurar luego en siguientes avances.
+
+    private Data data;
+
+    public GestorDiccionarioTecnico(Data data) {
+        this.data = data;
+    }
+
+    public GestorDiccionarioTecnico() {
+    }
+
+    //Tiene que retornar Lista de String o solo String
+    public List<PalabraTecnica> obtenerPalabrasTecnicas() {
+        return data.getListaPalabrasTecnicas();
+//        return data.getPalabrasTecnicas().toString();
+    }
+
+    public String registrarPalabraTecnica(String palabra, String categoria) {
+        data.agregarPalabraTecnica(new PalabraTecnica(palabra, categoria));
+        return "Palabra técnica registrada exitosamente";
+    }
 }

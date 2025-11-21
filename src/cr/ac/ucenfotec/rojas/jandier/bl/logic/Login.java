@@ -23,4 +23,6 @@ public class Login {
     public void setData(Data data) {
         this.data = data;
     }
+
+
 }

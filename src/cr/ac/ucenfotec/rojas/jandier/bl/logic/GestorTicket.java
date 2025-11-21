@@ -5,6 +5,7 @@ import cr.ac.ucenfotec.rojas.jandier.bl.entities.Ticket;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTicket {
@@ -16,9 +17,16 @@ public class GestorTicket {
 //        listaTickets = new ArrayList<>();
         this.data = data;
     }
-    public List<Ticket> obtenerTickets() {
-        return data.getListaTickets();
-    }
+    public List<String> obtenerTickets() {
+        List<String> resultado = new ArrayList<>();
+        if (data.getListaTickets().isEmpty()) {
+            resultado.add("[Lista vacía]");
+            return resultado;
+        }
+        for (Ticket ticket : data.getListaTickets()) {
+            resultado.add(ticket.toString());
+        }
+        return resultado;    }
 
 
     //Este metodo registra los tickets en base a sus atributos ingresados como parametros (argumentos en ejecucion)

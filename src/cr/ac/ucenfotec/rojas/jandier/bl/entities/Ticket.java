@@ -22,6 +22,10 @@ public class Ticket {
         this.departamento = departamento;
     }
 
+    public Ticket() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -77,8 +81,8 @@ public class Ticket {
                 "]--> [asunto = '" + asunto + '\'' +
                 "]--> [descripción = '" + descripcion + '\'' +
                 "]--> [estado = '" + estado + '\'' +
-                "]--> [usuario = " + usuario +
-                "]--> [departamento = " + departamento +
+                "]--> [usuario = " + usuario.toString() +
+                "]--> [departamento = " + departamento.toString() +
                 ']';
     }
 }
