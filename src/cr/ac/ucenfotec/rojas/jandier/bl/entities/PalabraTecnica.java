@@ -1,5 +1,7 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
+import java.util.Objects;
+
 public class PalabraTecnica {
     private String palabra;
     private String categoria;
@@ -31,5 +33,20 @@ public class PalabraTecnica {
                 "palabra='" + palabra + '\'' +
                 ", categoria='" + categoria + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        PalabraTecnica that = (PalabraTecnica) object;
+        return Objects.equals(getPalabra(), that.getPalabra()) && Objects.equals(getCategoria(), that.getCategoria());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(getPalabra());
+        result = 31 * result + Objects.hashCode(getCategoria());
+        return result;
     }
 }

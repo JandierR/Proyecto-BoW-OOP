@@ -1,5 +1,7 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
+import java.util.Objects;
+
 public class Ticket {
     //El id presenta que el ticket sea unico
     private int id;
@@ -84,5 +86,24 @@ public class Ticket {
                 "]--> [usuario = " + usuario.toString() +
                 "]--> [departamento = " + departamento.toString() +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Ticket ticket = (Ticket) object;
+        return getId() == ticket.getId() && Objects.equals(getAsunto(), ticket.getAsunto()) && Objects.equals(getDescripcion(), ticket.getDescripcion()) && Objects.equals(getEstado(), ticket.getEstado()) && Objects.equals(getUsuario(), ticket.getUsuario()) && Objects.equals(getDepartamento(), ticket.getDepartamento());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + Objects.hashCode(getAsunto());
+        result = 31 * result + Objects.hashCode(getDescripcion());
+        result = 31 * result + Objects.hashCode(getEstado());
+        result = 31 * result + Objects.hashCode(getUsuario());
+        result = 31 * result + Objects.hashCode(getDepartamento());
+        return result;
     }
 }

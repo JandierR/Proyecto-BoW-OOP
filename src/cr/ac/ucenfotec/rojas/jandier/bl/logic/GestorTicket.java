@@ -7,6 +7,7 @@ import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestorTicket {
 //    private List<Ticket> listaTickets;
@@ -57,4 +58,16 @@ public class GestorTicket {
         return "Ticket registrado exitosamente";
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        GestorTicket that = (GestorTicket) object;
+        return Objects.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
+    }
 }

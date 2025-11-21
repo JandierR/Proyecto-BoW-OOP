@@ -1,29 +1,32 @@
-10/24 --> Viernes:
---->He arreglado el problema con el Jar. Ahora, para que se actualice las clases de la libreria en el UI, solo debo de build
-    en domain.
---->Ya he agregado los metodos de registrarUsuario e imprimirUsuario con base a la logica.
---->Solo queda seguir trabajando con los siguientes metodos en relacion con el menu.
---->Tengo que pasar mi diagrama UML a Visual Paradigm
+Me falta terminar los casos de prueba, esperando a que el profe me conteste la duda sobre ello.
+
+Solo debo de hacer lo siguiente de requisitos:
+                         • La documentación y el archivo JavaDoc para todas las clases de la capa lógica y
+                           para todos los controladores.
+
+                         • Escribir el documento word de 5 paginas con todos los cambios y lo que me piden
 
 
-10/28 --> Martes
----> He agregado la mayoria de los registros y listados segun el menu
----> Solo me falta agregar la parte de registrar tanto palabra emocional como tecnica
---->Verificar siempre algun detalle en base a los requirimeintos del profesor.
----> Tengo que pasar mi diagrama UML a Visual Paradigm (PENDIENTE)
+9. El profe me dijo que la palabra tanto emocional como tecnica se deben de registrar manualmente, porque esas son las palabras
+que al crearlas, se almacenan en una lista en data, que es gestionada por los dicciones, y esas palabras son con las que se
+van a comparar con las otras palabras del ticket en la descripcion, para el BoW. (---------------TERMINADO----------------) ---> todo Solo falta en el tercer avance implementar el analisis
 
---> 10/29 -->IMPORTANTE ---> (Retroalimentacion del profe en clases)
------> Acabo de hablar con el profe sobre la parte de buscar el usuario a ver si existe con el metodo de correo.
-        El profesor dijo que mi metodo de buscarUsuarioPorCorreo no debe de retornar un usuario, si no un booleano
-        En base a eso, me permitira poner en la condicional en el controller al registrar un usuario, si esa instancia de
-        usuario ya existe. Por lo que debo de arreglar esa parte.
+10. El profe menciona que las obtenerUsuario, departamento, ticket en los gestores, que se utilizan en los metodos de imprimir
+en el Controller, no deben de retornar listas de objetos mas que String, solo String, esto porque debe ser compatible con otros
+lenguajes, tal como HTML, y HTML solo puede trabajar con Strings. (---------------TERMINADO----------------)
+
+11. Solo era crear el constructor vacio y ya. (---------------TERMINADO----------------)
+
+12. Una parte solo era poner toString en los atributos usuario y departamento en el toString de ticket. Pero, la otra parte,
+el profe no sabe por que me lo puso malo y debo de enviarle un correo con su retroalimentacion para que revise. (---------------PENDIENTE DEL PROFESOR----------------)
+
+13. En el UML, donde yo escribo el tipo de relacion, eso no es asi, alli lo que tiene que ir es el nombre de la clase
+a la que se le atribuye la relacion, ademas, en ticket no debo de poner como atributos a los objetos de otra clase,
+como usuario y departamento, solo debe de ir lo que es los gestores y setters, esto es porque ya es implicito el hecho
+de que se utilizan usuario y departamento tan solo con la relacion. (---------------TERMINADO----------------)
 
 
-10/29 --> Miercoles
----> Tengo que realizar el codigo para el GestorDiccionario tanto emocional como tecnico.
----> Cada palabra emocional o tecnica se debe de relacionar con el usuario y ticket, en base a sus ID.
----> En los gestores de diccionarios, se debe de poder agregar las palabras en una lista.
-     Ademas, debe de ser capaz de listar el diccionario segun el ID del tiquete
-     (Tengo que verificar si esta es la manera correcta segun el comportamiento del BoW y HelpDesk)
-     *10/30 --> El profesor me aclaro que esta parte del diccionario conformado en CRUD no es para el primer avance*
+Por otro lado, sobre el Javadoc, es algo que queda en mis manos.
+
+Preguntarle al profe sobre el primer criterio sobre UML que habla de herencia.
 

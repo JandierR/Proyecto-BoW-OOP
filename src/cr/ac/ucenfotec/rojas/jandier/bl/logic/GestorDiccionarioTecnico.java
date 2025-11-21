@@ -4,6 +4,7 @@ import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
 import java.util.List;
+import java.util.Objects;
 
 public class GestorDiccionarioTecnico {
 
@@ -25,5 +26,18 @@ public class GestorDiccionarioTecnico {
     public String registrarPalabraTecnica(String palabra, String categoria) {
         data.agregarPalabraTecnica(new PalabraTecnica(palabra, categoria));
         return "Palabra técnica registrada exitosamente";
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        GestorDiccionarioTecnico that = (GestorDiccionarioTecnico) object;
+        return Objects.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
     }
 }

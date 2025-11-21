@@ -4,6 +4,7 @@ import cr.ac.ucenfotec.rojas.jandier.bl.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Data {
 
@@ -92,4 +93,22 @@ public class Data {
         listaPalabrasEmocionales.add(palabraEmocional);
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Data data = (Data) object;
+        return Objects.equals(getListaDepartamento(), data.getListaDepartamento()) && Objects.equals(getListaTickets(), data.getListaTickets()) && Objects.equals(getListaUsuario(), data.getListaUsuario()) && Objects.equals(getContrasenas(), data.getContrasenas()) && Objects.equals(getListaPalabrasTecnicas(), data.getListaPalabrasTecnicas()) && Objects.equals(getListaPalabrasEmocionales(), data.getListaPalabrasEmocionales());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(getListaDepartamento());
+        result = 31 * result + Objects.hashCode(getListaTickets());
+        result = 31 * result + Objects.hashCode(getListaUsuario());
+        result = 31 * result + Objects.hashCode(getContrasenas());
+        result = 31 * result + Objects.hashCode(getListaPalabrasTecnicas());
+        result = 31 * result + Objects.hashCode(getListaPalabrasEmocionales());
+        return result;
+    }
 }

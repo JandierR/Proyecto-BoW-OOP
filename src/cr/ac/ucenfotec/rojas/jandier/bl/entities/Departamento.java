@@ -1,5 +1,7 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
+import java.util.Objects;
+
 public class Departamento {
 
     //El nombre del departamento debe de ser unico.
@@ -60,5 +62,22 @@ public class Departamento {
                 "]--> [correo = '" + correo + '\'' +
                 "]--> [ID = '#" + id + '\'' +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Departamento that = (Departamento) object;
+        return getId() == that.getId() && Objects.equals(getNombreDepartamento(), that.getNombreDepartamento()) && Objects.equals(getDescripcion(), that.getDescripcion()) && Objects.equals(getCorreo(), that.getCorreo());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(getNombreDepartamento());
+        result = 31 * result + Objects.hashCode(getDescripcion());
+        result = 31 * result + Objects.hashCode(getCorreo());
+        result = 31 * result + getId();
+        return result;
     }
 }

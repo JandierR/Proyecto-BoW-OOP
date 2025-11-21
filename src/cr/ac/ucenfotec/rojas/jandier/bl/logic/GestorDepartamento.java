@@ -5,6 +5,7 @@ import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestorDepartamento {
     private Data data;
@@ -71,5 +72,18 @@ public class GestorDepartamento {
         }
         //En el caso de que no haya match de id, entonces no existe el departamento, por lo que se retorna null.
         return null;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        GestorDepartamento that = (GestorDepartamento) object;
+        return Objects.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
     }
 }

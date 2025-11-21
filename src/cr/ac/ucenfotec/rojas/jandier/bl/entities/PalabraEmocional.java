@@ -1,5 +1,7 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
+import java.util.Objects;
+
 public class PalabraEmocional {
 
     private String palabra;
@@ -32,5 +34,20 @@ public class PalabraEmocional {
                 "palabra='" + palabra + '\'' +
                 ", emocion='" + emocion + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        PalabraEmocional that = (PalabraEmocional) object;
+        return Objects.equals(getPalabra(), that.getPalabra()) && Objects.equals(getEmocion(), that.getEmocion());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(getPalabra());
+        result = 31 * result + Objects.hashCode(getEmocion());
+        return result;
     }
 }

@@ -5,6 +5,7 @@ import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestorUsuario {
 
@@ -73,5 +74,18 @@ public class GestorUsuario {
         }
         //Si no, se retorna null, porque no existe
         return null;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        GestorUsuario that = (GestorUsuario) object;
+        return Objects.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
     }
 }

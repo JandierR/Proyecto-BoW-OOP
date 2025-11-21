@@ -4,6 +4,7 @@ import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 
 import java.util.List;
+import java.util.Objects;
 
 public class GestorDiccionarioEmocional {
 
@@ -26,5 +27,18 @@ public class GestorDiccionarioEmocional {
     public String registrarPalabraEmocional(String palabra, String emocion) {
         data.agregarPalabraEmocional(new PalabraEmocional(palabra, emocion));
         return "Palabra emocional registrada exitosamente!";
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+
+        GestorDiccionarioEmocional that = (GestorDiccionarioEmocional) object;
+        return Objects.equals(data, that.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(data);
     }
 }
