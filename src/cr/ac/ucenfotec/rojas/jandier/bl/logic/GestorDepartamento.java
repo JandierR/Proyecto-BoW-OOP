@@ -9,11 +9,9 @@ import java.util.Objects;
 
 public class GestorDepartamento {
     private Data data;
-//    private List<Departamento> listaDepartamento;
 
     public GestorDepartamento(Data data) {
 
-//        listaDepartamento = new ArrayList<>();
         this.data = data;
 
     }

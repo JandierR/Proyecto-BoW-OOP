@@ -10,12 +10,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class GestorTicket {
-//    private List<Ticket> listaTickets;
 
     private Data data;
 
     public GestorTicket(Data data) {
-//        listaTickets = new ArrayList<>();
         this.data = data;
     }
     public List<String> obtenerTickets() {
@@ -35,18 +33,12 @@ public class GestorTicket {
         GestorUsuario gestorUsuario = new GestorUsuario(data);
         GestorDepartamento gestorDepartamento = new GestorDepartamento(data);
 
-        //Verifica si existe un usuario con el id ingresado
+        //Verifica si existe un usuario y departamento con el id ingresado
         Usuario usuario = gestorUsuario.buscarPorId(data.getListaUsuario(), idUsuario);
-
-        if (usuario == null) {
-            return "Lo sentimos, este usuario no existe";
-        }
-
-        //Verifica si existe un departamento con el id ingresado
         Departamento departamento = gestorDepartamento.buscarPorId(data.getListaDepartamento(), idDepartamento);
 
-        if (departamento == null) {
-            return "Lo sentimos, este departamento no existe";
+        if (usuario == null || departamento == null) {
+            return "Lo sentimos, este usuario o este departamento no existe";
         }
 
         if (!estado.equalsIgnoreCase("Nuevo") &&

@@ -9,11 +9,9 @@ import java.util.Objects;
 
 public class GestorUsuario {
 
-    //    private List<Usuario> listaUsuario;
     private Data data;
 
     public GestorUsuario(Data data) {
-//        listaUsuario = new ArrayList<>();
         this.data = data;
     }
 
