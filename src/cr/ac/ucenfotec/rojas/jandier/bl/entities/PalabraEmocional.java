@@ -2,22 +2,13 @@ package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 import java.util.Objects;
 
-public class PalabraEmocional {
+public class PalabraEmocional extends Palabra {
 
-    private String palabra;
     private String emocion;
 
     public PalabraEmocional(String palabra, String emocion) {
-        this.palabra = palabra;
+        super(palabra);
         this.emocion = emocion;
-    }
-
-    public String getPalabra() {
-        return palabra;
-    }
-
-    public void setPalabra(String palabra) {
-        this.palabra = palabra;
     }
 
     public String getEmocion() {
@@ -31,22 +22,22 @@ public class PalabraEmocional {
     @Override
     public String toString() {
         return "PalabraEmocional{" +
-                "palabra='" + palabra + '\'' +
-                ", emocion='" + emocion + '\'' +
-                '}';
+                "emocion='" + emocion + '\'' +
+                "} " + super.toString();
     }
 
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
 
         PalabraEmocional that = (PalabraEmocional) object;
-        return Objects.equals(getPalabra(), that.getPalabra()) && Objects.equals(getEmocion(), that.getEmocion());
+        return Objects.equals(getEmocion(), that.getEmocion());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(getPalabra());
+        int result = super.hashCode();
         result = 31 * result + Objects.hashCode(getEmocion());
         return result;
     }

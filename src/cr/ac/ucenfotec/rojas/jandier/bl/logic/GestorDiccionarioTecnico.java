@@ -25,6 +25,7 @@ public class GestorDiccionarioTecnico {
 
     public String registrarPalabraTecnica(String palabra, String categoria) {
         data.agregarPalabraTecnica(new PalabraTecnica(palabra, categoria));
+
         return "Palabra técnica registrada exitosamente";
     }
 

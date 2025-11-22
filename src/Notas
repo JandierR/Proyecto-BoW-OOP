@@ -28,5 +28,9 @@ de que se utilizan usuario y departamento tan solo con la relacion. (-----------
 
 Por otro lado, sobre el Javadoc, es algo que queda en mis manos.
 
-Preguntarle al profe sobre el primer criterio sobre UML que habla de herencia.
+Preguntarle al profe sobre el primer criterio sobre UML que habla de herencia, ademas de que menciona que todas las clases deben de implementar herencia
+    Respuesta: El profe dijo que debo de decidir yo si hay herencia o no. No es obligatorio que haya, pero es mi decision en mi implementacion.
 
+todo: 1. Tengo que hacer el readme file de github para ambos proyectos. Tomar en cuenta los ultimos dos criterios.
+
+El diagrama de secuencias UML debe de ponerse como imagenes en el documento word para su explicaicon de la implementaicon del BoW

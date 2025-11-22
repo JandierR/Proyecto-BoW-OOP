@@ -2,21 +2,12 @@ package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 import java.util.Objects;
 
-public class PalabraTecnica {
-    private String palabra;
+public class PalabraTecnica extends Palabra {
     private String categoria;
 
     public PalabraTecnica(String palabra, String categoria) {
-        this.palabra = palabra;
+        super(palabra);
         this.categoria = categoria;
-    }
-
-    public String getPalabra() {
-        return palabra;
-    }
-
-    public void setPalabra(String palabra) {
-        this.palabra = palabra;
     }
 
     public String getCategoria() {
@@ -30,22 +21,22 @@ public class PalabraTecnica {
     @Override
     public String toString() {
         return "PalabraTecnica{" +
-                "palabra='" + palabra + '\'' +
-                ", categoria='" + categoria + '\'' +
-                '}';
+                "categoria='" + categoria + '\'' +
+                "} " + super.toString();
     }
 
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
 
         PalabraTecnica that = (PalabraTecnica) object;
-        return Objects.equals(getPalabra(), that.getPalabra()) && Objects.equals(getCategoria(), that.getCategoria());
+        return Objects.equals(getCategoria(), that.getCategoria());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(getPalabra());
+        int result = super.hashCode();
         result = 31 * result + Objects.hashCode(getCategoria());
         return result;
     }

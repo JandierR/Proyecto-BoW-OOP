@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cr.ac.ucenfotec.rojas.jandier.bl.entities"},{"l":"cr.ac.ucenfotec.rojas.jandier.bl.logic"},{"l":"cr.ac.ucenfotec.rojas.jandier.dl"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cr.ac.ucenfotec.rojas.jandier.bl.logic"}];updateSearchResults();
