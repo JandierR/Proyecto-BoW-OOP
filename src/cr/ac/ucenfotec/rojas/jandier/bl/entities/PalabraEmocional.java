@@ -4,25 +4,25 @@ import java.util.Objects;
 
 public class PalabraEmocional extends Palabra {
 
-    private String emocion;
+    private String tipo;
 
-    public PalabraEmocional(String palabra, String emocion) {
+    public PalabraEmocional(String palabra, String tipo) {
         super(palabra);
-        this.emocion = emocion;
+        this.tipo = tipo;
     }
 
-    public String getEmocion() {
-        return emocion;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setEmocion(String emocion) {
-        this.emocion = emocion;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public String toString() {
         return "PalabraEmocional{" +
-                "emocion='" + emocion + '\'' +
+                "emocion='" + tipo + '\'' +
                 "} " + super.toString();
     }
 
@@ -32,13 +32,13 @@ public class PalabraEmocional extends Palabra {
         if (!super.equals(object)) return false;
 
         PalabraEmocional that = (PalabraEmocional) object;
-        return Objects.equals(getEmocion(), that.getEmocion());
+        return Objects.equals(getTipo(), that.getTipo());
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + Objects.hashCode(getEmocion());
+        result = 31 * result + Objects.hashCode(getTipo());
         return result;
     }
 }
