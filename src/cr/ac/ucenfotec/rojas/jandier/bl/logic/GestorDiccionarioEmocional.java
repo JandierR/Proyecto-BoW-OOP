@@ -2,6 +2,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.PalabraEmocionalDAO;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,12 +21,13 @@ public class GestorDiccionarioEmocional {
 
     //Tiene que retornar Lista de String o solo String
     public List<PalabraEmocional> obtenerPalabrasEmocional() {
-        return data.getListaPalabrasEmocionales();
+        return PalabraEmocionalDAO.listar();
 //        return data.getListaPalabrasEmocionales().toString();
     }
 
     public String registrarPalabraEmocional(String palabra, String emocion) {
-        data.agregarPalabraEmocional(new PalabraEmocional(palabra, emocion));
+//        data.agregarPalabraEmocional(new PalabraEmocional(palabra, emocion));
+        PalabraEmocionalDAO.insertar(new PalabraEmocional(palabra, emocion.toLowerCase()));
         return "Palabra emocional registrada exitosamente!";
     }
 

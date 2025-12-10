@@ -2,6 +2,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.UsuarioDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,40 +19,42 @@ public class GestorUsuario {
     public GestorUsuario() {
     }
 
-    //Si pongo retornar lista de tipo String, y data.getListaUsuario().toString, me da error
     public List<String> obtenerUsuarios() {
 
+        List<Usuario> usuarios = UsuarioDAO.listar();
         List<String> resultado = new ArrayList<>();
-        if (data.getListaUsuario().isEmpty()) {
+
+        if (usuarios.isEmpty()) {
             resultado.add("[Lista vacía]");
             return resultado;
         }
-            //En este caso que no este vacia la lista, se imprime sus elementos.
-            for (Usuario usuario : data.getListaUsuario()) {
-                resultado.add(usuario.toString());
-            }
-            return resultado;
+        //En este caso que no este vacia la lista, se imprime sus elementos.
+        for (Usuario usuario : usuarios) {
+            resultado.add(usuario.toString());
+        }
+        return resultado;
 
     }
 
     //Este metodo registra los usuarios con base a sus atributos ingresados como parametros (argumentos en ejecuicion)
     public String registrarUsuario(String nombre, String correo, String contrasena, String telefono, String rol, int id) {
 
-        boolean existeUsuario = existeUsuario(data.getListaUsuario(), id);
+        boolean existeUsuario = existeUsuario( id);
 
         if (existeUsuario) {
             return "Lo sentimos, ya existe este usuario";
         }
 
-        data.agregarUsuario(new Usuario(nombre, correo, contrasena, telefono, rol, id));
+//        data.agregarUsuario(new Usuario(nombre, correo, contrasena, telefono, rol, id));
+        UsuarioDAO.insertar(new Usuario(nombre, correo, contrasena, telefono, rol, id));
         return "Usuario registrado exitosamente!";
     }
 
 
-
     //Este metodo verifica si existe un usuario en la listaUsuario con el ID pasado como argumento
-    public boolean existeUsuario(List<Usuario> listaUsuario, int id) {
-        for (Usuario usuario : listaUsuario) {
+    public boolean existeUsuario( int id) {
+        List<Usuario> usuarios = UsuarioDAO.listar();
+        for (Usuario usuario : usuarios) {
             //Si el usuario existe, se retorna verdadero
             if (usuario.getId() == id) {
                 return true;
@@ -63,8 +66,9 @@ public class GestorUsuario {
 
     //Este metodo no se puede utilizar en el UI. Sin embargo, si se puede utilizar en el ticketManager
     //Este metodo busca en la listaUsuario un usuario con el id ingresado como argumento
-    public Usuario buscarPorId(List<Usuario> listaUsuario, int id) {
-        for (Usuario usuario : listaUsuario) {
+    public Usuario buscarPorId(int id) {
+        List<Usuario> usuarios = UsuarioDAO.listar();
+        for (Usuario usuario : usuarios) {
             //Si hay un usuario con el id pasado, entonces si existe y se retorna el usuario
             if (usuario.getId() == id) {
                 return usuario;

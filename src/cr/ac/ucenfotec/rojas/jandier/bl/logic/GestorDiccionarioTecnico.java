@@ -2,6 +2,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.PalabraTecnicaDAO;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,13 +20,13 @@ public class GestorDiccionarioTecnico {
 
     //Tiene que retornar Lista de String o solo String
     public List<PalabraTecnica> obtenerPalabrasTecnicas() {
-        return data.getListaPalabrasTecnicas();
+        return PalabraTecnicaDAO.listar();
 //        return data.getPalabrasTecnicas().toString();
     }
 
     public String registrarPalabraTecnica(String palabra, String categoria) {
-        data.agregarPalabraTecnica(new PalabraTecnica(palabra, categoria));
-
+//        data.agregarPalabraTecnica(new PalabraTecnica(palabra, categoria));
+        PalabraTecnicaDAO.insertar(new PalabraTecnica(palabra, categoria.toLowerCase()));
         return "Palabra técnica registrada exitosamente";
     }
 

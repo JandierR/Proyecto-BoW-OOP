@@ -2,6 +2,7 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.DepartamentoDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.Objects;
 
 public class GestorDepartamento {
     private Data data;
+
+    public GestorDepartamento() {
+    }
 
     public GestorDepartamento(Data data) {
 
@@ -19,12 +23,13 @@ public class GestorDepartamento {
     public List<String> obtenerDepartamentos() {
 
         List<String> resultado = new ArrayList<>();
-        if (data.getListaDepartamento().isEmpty()) {
+        List<Departamento> departamentos = DepartamentoDAO.listar();
+        if (departamentos.isEmpty()) {
             resultado.add("[Lista vacía]");
             return resultado;
         }
         //En este caso que no este vacia la lista, se imprime sus elementos.
-        for (Departamento departamento : data.getListaDepartamento()) {
+        for (Departamento departamento : departamentos) {
             resultado.add(departamento.toString());
         }
         return resultado;
@@ -34,13 +39,14 @@ public class GestorDepartamento {
     //El mismo permite agregar a listaDepartamento el nuevo departamento registrado desde Controller de la UI.
     public String registrarDepartamento(String nombreDepartamento, String descripcion, String correo, int id) {
 
-        boolean existeDepartamento = existeDepartamento(data.getListaDepartamento(), id);
+        boolean existeDepartamento = existeDepartamento(id);
 
         if (existeDepartamento) {
             return "Lo sentimos, ya existe este departamento";
         }
 
-        data.agregarDepartamento(new Departamento(nombreDepartamento, descripcion, correo, id));
+//        data.agregarDepartamento(new Departamento(nombreDepartamento, descripcion, correo, id));
+        DepartamentoDAO.insertar(new Departamento(nombreDepartamento, descripcion, correo, id));
         return "Departamento registrado exitosamente";
 
     }
@@ -49,8 +55,9 @@ public class GestorDepartamento {
 
 
     //Este metodo verifica si existe algun departamento de la listaDepartamento con el ID que se pasa como parametro (argumento en ejecucion)
-    public boolean existeDepartamento(List<Departamento> listaDepartamento, int id) {
-        for (Departamento departamento : listaDepartamento) {
+    public boolean existeDepartamento( int id) {
+        List<Departamento> departamentos = DepartamentoDAO.listar();
+        for (Departamento departamento : departamentos) {
             //Si existe el departamento, retorna verdadero
             if (departamento.getId() == id) {
                 return true;
@@ -61,8 +68,10 @@ public class GestorDepartamento {
     }
 
     //Este metodo busca en la listaDepartamento el departamento con el ID ingresado.
-    public Departamento buscarPorId(List<Departamento> listaDepartamento, int id) {
-        for (Departamento departamento : listaDepartamento) {
+    public Departamento buscarPorId(int id) {
+        List<Departamento> departamentos = DepartamentoDAO.listar();
+
+        for (Departamento departamento : departamentos) {
             //Si hay un departamento con ese ID, se retorna el departamento
             if (departamento.getId() == id) {
                 return departamento;

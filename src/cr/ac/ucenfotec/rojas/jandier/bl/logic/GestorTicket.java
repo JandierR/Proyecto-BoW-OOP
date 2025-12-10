@@ -4,6 +4,7 @@ import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Ticket;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.TicketDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +19,12 @@ public class GestorTicket {
     }
     public List<String> obtenerTickets() {
         List<String> resultado = new ArrayList<>();
-        if (data.getListaTickets().isEmpty()) {
+        List<Ticket> tickets = TicketDAO.listar();
+        if (tickets.isEmpty()) {
             resultado.add("[Lista vacía]");
             return resultado;
         }
-        for (Ticket ticket : data.getListaTickets()) {
+        for (Ticket ticket : tickets) {
             resultado.add(ticket.toString());
         }
         return resultado;    }
@@ -34,8 +36,8 @@ public class GestorTicket {
         GestorDepartamento gestorDepartamento = new GestorDepartamento(data);
 
         //Verifica si existe un usuario y departamento con el id ingresado
-        Usuario usuario = gestorUsuario.buscarPorId(data.getListaUsuario(), idUsuario);
-        Departamento departamento = gestorDepartamento.buscarPorId(data.getListaDepartamento(), idDepartamento);
+        Usuario usuario = gestorUsuario.buscarPorId(idUsuario);
+        Departamento departamento = gestorDepartamento.buscarPorId(idDepartamento);
 
         if (usuario == null || departamento == null) {
             return "Lo sentimos, este usuario o este departamento no existe";
@@ -46,7 +48,8 @@ public class GestorTicket {
                 !estado.equalsIgnoreCase("Resuelto")) {
             return "Por favor, ingresar un estado valido";
         }
-        data.agregarTicket(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
+//        data.agregarTicket(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
+        TicketDAO.insertar(new Ticket(id, asunto, descripcion, estado, usuario, departamento));
         return "Ticket registrado exitosamente";
     }
 

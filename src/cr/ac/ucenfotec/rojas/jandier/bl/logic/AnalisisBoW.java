@@ -3,6 +3,8 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
 import cr.ac.ucenfotec.rojas.jandier.dl.Data;
+import cr.ac.ucenfotec.rojas.jandier.dl.PalabraEmocionalDAO;
+import cr.ac.ucenfotec.rojas.jandier.dl.PalabraTecnicaDAO;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -124,20 +126,20 @@ public class AnalisisBoW {
         int neutral = 0;
 
         List<String> palabrasDetonantes = new ArrayList<>();
-
+        List<PalabraEmocional> palabrasEmocionales = PalabraEmocionalDAO.listar();
         for (String token : tokens) {
-            for (PalabraEmocional palabraEmocional : data.getListaPalabrasEmocionales()) {
+            for (PalabraEmocional palabraEmocional : palabrasEmocionales) {
 
-                if (data.getListaPalabrasEmocionales().isEmpty()) {
+                if (palabrasEmocionales.isEmpty()) {
                     return "Lo sentimos. No has registrado palabras para el análisis!";
                 }
 
                 if (token.equalsIgnoreCase(palabraEmocional.getPalabra())) {
                     palabrasDetonantes.add(token);
-                    switch (palabraEmocional.getTipo()) {
-                        case "Positivo" -> positivo++;
-                        case "Negativo" -> negativo++;
-                        case "Neutral" -> neutral++;
+                    switch (palabraEmocional.getTipo().toLowerCase()) {
+                        case "positivo" -> positivo++;
+                        case "negativo" -> negativo++;
+                        case "neutral" -> neutral++;
 
                     }
                 }
@@ -160,7 +162,7 @@ public class AnalisisBoW {
 
 
         List<String> categorias = new ArrayList<>();
-
+        List<PalabraTecnica> palabrasTecnicas = PalabraTecnicaDAO.listar();
 
         //Aqui se limpia la descripcion
         String descripcionLimpia = eliminarStopWords(descripcion);
@@ -168,7 +170,7 @@ public class AnalisisBoW {
         String[] tokens = tokenizacion(descripcionLimpia);
 
         for (String token : tokens) {
-            for (PalabraTecnica palabraTecnica : data.getListaPalabrasTecnicas()) {
+            for (PalabraTecnica palabraTecnica : palabrasTecnicas) {
                 if (token.equalsIgnoreCase(palabraTecnica.getPalabra())) {
                     if (!categorias.contains(palabraTecnica.getCategoria())) {
                         categorias.add(palabraTecnica.getCategoria().toUpperCase() + " --> Palabra detonante = " + token);
