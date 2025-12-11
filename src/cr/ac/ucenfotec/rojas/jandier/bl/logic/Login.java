@@ -13,9 +13,9 @@ public class Login {
         this.data = data;
     }
 
-    public boolean iniciaSesion(Usuario usuario, String contrasena) {
+    public boolean iniciaSesion(Usuario usuario, String contrasena, int id) {
 
-        return usuario != null && contrasena.equalsIgnoreCase(usuario.getContrasena());
+        return usuario != null && contrasena.equalsIgnoreCase(usuario.getContrasena()) && id == usuario.getId();
     }
 
     public Data getData() {

@@ -66,4 +66,54 @@ public class UsuarioDAO {
         return usuarios;
     }
 
+    public static boolean eliminar(int id) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "DELETE FROM usuario WHERE id = " + id;
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+    }
+
+    public static boolean modificar(Usuario usuario) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "UPDATE usuario SET "
+                    + "nombreCompleto = '" + usuario.getNombreCompleto() + "', "
+                    + "correo = '" + usuario.getCorreo() + "', "
+                    + "contrasena = '" + usuario.getContrasena() + "', "
+                    + "telefono = '" + usuario.getTelefono() + "', "
+                    + "rol = '" + usuario.getRol() + "' "
+                    + "WHERE id  = " + usuario.getId();
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
 }

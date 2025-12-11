@@ -78,6 +78,16 @@ public class GestorUsuario {
         return null;
     }
 
+    public String eliminarUsuario(int id) {
+        boolean eliminado = UsuarioDAO.eliminar(id);
+        return eliminado ? "Usuario eliminado correctamente" : "No se encontro ese usuario";
+    }
+
+    public String modificarUsuario(Usuario usuario) {
+        boolean modificado = UsuarioDAO.modificar(usuario);
+        return modificado ? "Usuario modificado exitosamente" : "No se encontro ese usuario";
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
