@@ -1,24 +1,17 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.DepartamentoDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class GestorDepartamento {
-    private Data data;
 
     public GestorDepartamento() {
     }
 
-    public GestorDepartamento(Data data) {
 
-        this.data = data;
-
-    }
 
     public List<String> obtenerDepartamentos() {
 
@@ -92,15 +85,12 @@ public class GestorDepartamento {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-
-        GestorDepartamento that = (GestorDepartamento) object;
-        return Objects.equals(data, that.data);
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(data);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

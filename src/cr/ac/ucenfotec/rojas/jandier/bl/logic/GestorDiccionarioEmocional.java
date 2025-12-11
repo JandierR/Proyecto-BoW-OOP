@@ -1,20 +1,18 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.PalabraEmocionalDAO;
 
 import java.util.List;
-import java.util.Objects;
 
 public class GestorDiccionarioEmocional {
 
-    private Data data;
-
-
-    public GestorDiccionarioEmocional(Data data) {
-        this.data = data;
-    }
+//    private Data data;
+//
+//
+//    public GestorDiccionarioEmocional(Data data) {
+//        this.data = data;
+//    }
 
     public GestorDiccionarioEmocional() {
     }
@@ -42,15 +40,12 @@ public class GestorDiccionarioEmocional {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-
-        GestorDiccionarioEmocional that = (GestorDiccionarioEmocional) object;
-        return Objects.equals(data, that.data);
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(data);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

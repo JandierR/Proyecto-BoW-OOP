@@ -2,7 +2,6 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraEmocional;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.PalabraEmocionalDAO;
 import cr.ac.ucenfotec.rojas.jandier.dl.PalabraTecnicaDAO;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class AnalisisBoW {
 
-    private Data data;
+//    private Data data;
 
     //    public static void main(String[] args) {
 //        String descripcion = "Me siento feliz, porque voy a terminar el curso";
@@ -25,9 +24,9 @@ public class AnalisisBoW {
 //        }
 //
 //    }
-    public AnalisisBoW(Data data) {
-        this.data = data;
-    }
+//    public AnalisisBoW(Data data) {
+//        this.data = data;
+//    }
 
     public AnalisisBoW() {
     }
@@ -181,5 +180,7 @@ public class AnalisisBoW {
 
         return categorias;
     }
+
+
 
 }

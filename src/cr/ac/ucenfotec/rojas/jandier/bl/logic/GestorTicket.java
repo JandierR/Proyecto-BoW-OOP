@@ -3,20 +3,23 @@ package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Departamento;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Ticket;
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.TicketDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class GestorTicket {
 
-    private Data data;
+//    private Data data;
+//
+//    public GestorTicket(Data data) {
+//        this.data = data;
+//    }
 
-    public GestorTicket(Data data) {
-        this.data = data;
+
+    public GestorTicket() {
     }
+
     public List<String> obtenerTickets() {
         List<String> resultado = new ArrayList<>();
         List<Ticket> tickets = TicketDAO.listar();
@@ -32,8 +35,8 @@ public class GestorTicket {
 
     //Este metodo registra los tickets en base a sus atributos ingresados como parametros (argumentos en ejecucion)
     public String registrarTicket(int id, String asunto, String descripcion, String estado, int idUsuario, int idDepartamento) {
-        GestorUsuario gestorUsuario = new GestorUsuario(data);
-        GestorDepartamento gestorDepartamento = new GestorDepartamento(data);
+        GestorUsuario gestorUsuario = new GestorUsuario();
+        GestorDepartamento gestorDepartamento = new GestorDepartamento();
 
         //Verifica si existe un usuario y departamento con el id ingresado
         Usuario usuario = gestorUsuario.buscarPorId(idUsuario);
@@ -64,15 +67,12 @@ public class GestorTicket {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-
-        GestorTicket that = (GestorTicket) object;
-        return Objects.equals(data, that.data);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(data);
+        return super.hashCode();
     }
 }

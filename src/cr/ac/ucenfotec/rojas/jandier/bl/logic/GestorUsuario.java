@@ -1,20 +1,18 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.Usuario;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.UsuarioDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class GestorUsuario {
 
-    private Data data;
-
-    public GestorUsuario(Data data) {
-        this.data = data;
-    }
+//    private Data data;
+//
+//    public GestorUsuario(Data data) {
+//        this.data = data;
+//    }
 
     public GestorUsuario() {
     }
@@ -89,15 +87,12 @@ public class GestorUsuario {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-
-        GestorUsuario that = (GestorUsuario) object;
-        return Objects.equals(data, that.data);
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(data);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

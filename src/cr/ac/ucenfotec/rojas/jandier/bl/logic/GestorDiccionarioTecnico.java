@@ -1,19 +1,12 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.logic;
 
 import cr.ac.ucenfotec.rojas.jandier.bl.entities.PalabraTecnica;
-import cr.ac.ucenfotec.rojas.jandier.dl.Data;
 import cr.ac.ucenfotec.rojas.jandier.dl.PalabraTecnicaDAO;
 
 import java.util.List;
-import java.util.Objects;
 
 public class GestorDiccionarioTecnico {
 
-    private Data data;
-
-    public GestorDiccionarioTecnico(Data data) {
-        this.data = data;
-    }
 
     public GestorDiccionarioTecnico() {
     }
@@ -36,20 +29,18 @@ public class GestorDiccionarioTecnico {
     }
 
     public String modificarPalabraTecnica(PalabraTecnica palabraTecnica) {
-        boolean modificado =  PalabraTecnicaDAO.modificar(palabraTecnica);
+        boolean modificado = PalabraTecnicaDAO.modificar(palabraTecnica);
         return modificado ? "Palabra técnica modificada exitosamente" : "No se encontró esa palabra técnica";
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
-
-        GestorDiccionarioTecnico that = (GestorDiccionarioTecnico) object;
-        return Objects.equals(data, that.data);
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(data);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
+
