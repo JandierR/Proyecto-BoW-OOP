@@ -39,13 +39,5 @@ public class GestorDiccionarioEmocional {
         return modificado ? "Palabra emocional modificada exitosamente" : "No se encontró esa palabra emocional";
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 }

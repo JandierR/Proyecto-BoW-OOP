@@ -66,13 +66,5 @@ public class GestorTicket {
         return modificado ? "Ticket modificado exitosamente" : "No se encontro ese ticket";
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 }

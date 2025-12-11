@@ -84,13 +84,5 @@ public class GestorDepartamento {
         return modificado ? "Departamento modificado exitosamente" : "No se encontro ese departamento";
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 }

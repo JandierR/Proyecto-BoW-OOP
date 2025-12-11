@@ -86,13 +86,5 @@ public class GestorUsuario {
         return modificado ? "Usuario modificado exitosamente" : "No se encontro ese usuario";
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 }

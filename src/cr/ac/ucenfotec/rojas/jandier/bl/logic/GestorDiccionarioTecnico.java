@@ -33,14 +33,6 @@ public class GestorDiccionarioTecnico {
         return modificado ? "Palabra técnica modificada exitosamente" : "No se encontró esa palabra técnica";
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 }
 
