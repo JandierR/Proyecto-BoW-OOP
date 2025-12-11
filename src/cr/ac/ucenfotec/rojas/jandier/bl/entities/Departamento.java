@@ -2,6 +2,9 @@ package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 import java.util.Objects;
 
+/**
+ * The type Departamento.
+ */
 public class Departamento {
 
     //El nombre del departamento debe de ser unico.
@@ -15,6 +18,14 @@ public class Departamento {
     //Tener muchos tickets.
 
 
+    /**
+     * Instantiates a new Departamento.
+     *
+     * @param nombreDepartamento the nombre departamento
+     * @param descripcion        the descripcion
+     * @param correo             the correo
+     * @param id                 the id
+     */
     public Departamento(String nombreDepartamento, String descripcion, String correo, int id) {
         this.nombreDepartamento = nombreDepartamento;
         this.descripcion = descripcion;
@@ -22,34 +33,74 @@ public class Departamento {
         this.id = id;
     }
 
+    /**
+     * Gets nombre departamento.
+     *
+     * @return the nombre departamento
+     */
     public String getNombreDepartamento() {
         return nombreDepartamento;
     }
 
+    /**
+     * Sets nombre departamento.
+     *
+     * @param nombreDepartamento the nombre departamento
+     */
     public void setNombreDepartamento(String nombreDepartamento) {
         this.nombreDepartamento = nombreDepartamento;
     }
 
+    /**
+     * Gets correo.
+     *
+     * @return the correo
+     */
     public String getCorreo() {
         return correo;
     }
 
+    /**
+     * Sets correo.
+     *
+     * @param correo the correo
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    /**
+     * Gets descripcion.
+     *
+     * @return the descripcion
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Sets descripcion.
+     *
+     * @param descripcion the descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }

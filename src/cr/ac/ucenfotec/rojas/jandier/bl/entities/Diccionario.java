@@ -1,5 +1,8 @@
 package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
+/**
+ * The type Diccionario.
+ */
 public class Diccionario {
     //Luego en siguientes avances donde se implemente el analisis BoW,
     //se le implementara codigo a esta clase, ya que por ahorita no toma lugar para el primer avance.

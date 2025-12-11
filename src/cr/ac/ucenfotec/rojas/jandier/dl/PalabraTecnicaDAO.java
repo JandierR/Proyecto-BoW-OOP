@@ -9,10 +9,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Palabra tecnica dao.
+ */
 public class PalabraTecnicaDAO {
+    /**
+     * Instantiates a new Palabra tecnica dao.
+     */
     public PalabraTecnicaDAO() {
     }
 
+    /**
+     * Insertar string.
+     *
+     * @param palabraTecnica the palabra tecnica
+     * @return the string
+     */
     public static String insertar(PalabraTecnica palabraTecnica) {
 
         try {
@@ -34,6 +46,11 @@ public class PalabraTecnicaDAO {
         return "";
     }
 
+    /**
+     * Listar list.
+     *
+     * @return the list
+     */
     public static List<PalabraTecnica> listar() {
         Connection con = null;
         Statement stmt = null;
@@ -59,6 +76,12 @@ public class PalabraTecnicaDAO {
         return palabraTecnicas;
     }
 
+    /**
+     * Eliminar boolean.
+     *
+     * @param palabra the palabra
+     * @return the boolean
+     */
     public static boolean eliminar(String palabra) {
         Connection con = null;
         Statement stmt = null;
@@ -81,6 +104,12 @@ public class PalabraTecnicaDAO {
 
     }
 
+    /**
+     * Modificar boolean.
+     *
+     * @param palabraTecnica the palabra tecnica
+     * @return the boolean
+     */
     public static boolean modificar(PalabraTecnica palabraTecnica) {
         Connection con = null;
         Statement stmt = null;

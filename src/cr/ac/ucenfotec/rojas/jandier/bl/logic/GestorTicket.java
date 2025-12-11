@@ -8,6 +8,9 @@ import cr.ac.ucenfotec.rojas.jandier.dl.TicketDAO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Gestor ticket.
+ */
 public class GestorTicket {
 
 //    private Data data;
@@ -17,9 +20,17 @@ public class GestorTicket {
 //    }
 
 
+    /**
+     * Instantiates a new Gestor ticket.
+     */
     public GestorTicket() {
     }
 
+    /**
+     * Obtener tickets list.
+     *
+     * @return the list
+     */
     public List<String> obtenerTickets() {
         List<String> resultado = new ArrayList<>();
         List<Ticket> tickets = TicketDAO.listar();
@@ -33,7 +44,18 @@ public class GestorTicket {
         return resultado;    }
 
 
-    //Este metodo registra los tickets en base a sus atributos ingresados como parametros (argumentos en ejecucion)
+    /**
+     * Registrar ticket string.
+     *
+     * @param id             the id
+     * @param asunto         the asunto
+     * @param descripcion    the descripcion
+     * @param estado         the estado
+     * @param idUsuario      the id usuario
+     * @param idDepartamento the id departamento
+     * @return the string
+     */
+//Este metodo registra los tickets en base a sus atributos ingresados como parametros (argumentos en ejecucion)
     public String registrarTicket(int id, String asunto, String descripcion, String estado, int idUsuario, int idDepartamento) {
         GestorUsuario gestorUsuario = new GestorUsuario();
         GestorDepartamento gestorDepartamento = new GestorDepartamento();
@@ -56,11 +78,23 @@ public class GestorTicket {
         return "Ticket registrado exitosamente";
     }
 
+    /**
+     * Eliminar ticket string.
+     *
+     * @param id the id
+     * @return the string
+     */
     public String eliminarTicket(int id) {
         boolean eliminado = TicketDAO.eliminar(id);
         return eliminado ? "Ticket eliminado correctamente" : "No se encontro ese ticket";
     }
 
+    /**
+     * Modificar ticket string.
+     *
+     * @param ticket the ticket
+     * @return the string
+     */
     public String modificarTicket(Ticket ticket) {
         boolean modificado = TicketDAO.modificar(ticket);
         return modificado ? "Ticket modificado exitosamente" : "No se encontro ese ticket";

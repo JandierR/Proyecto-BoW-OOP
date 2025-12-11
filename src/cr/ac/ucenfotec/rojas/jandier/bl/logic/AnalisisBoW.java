@@ -9,6 +9,9 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Analisis bo w.
+ */
 public class AnalisisBoW {
 
 //    private Data data;
@@ -28,9 +31,18 @@ public class AnalisisBoW {
 //        this.data = data;
 //    }
 
+    /**
+     * Instantiates a new Analisis bo w.
+     */
     public AnalisisBoW() {
     }
 
+    /**
+     * Eliminar stop words string.
+     *
+     * @param descripcion the descripcion
+     * @return the string
+     */
     public String eliminarStopWords(String descripcion) {
 
 
@@ -74,6 +86,12 @@ public class AnalisisBoW {
         return resultado.toString().trim();
     }
 
+    /**
+     * Normalizacion string.
+     *
+     * @param descripcion the descripcion
+     * @return the string
+     */
     public String normalizacion(String descripcion) {
 
         if (descripcion == null) {
@@ -102,6 +120,12 @@ public class AnalisisBoW {
         return descripcionTemporal;
     }
 
+    /**
+     * Tokenizacion string [ ].
+     *
+     * @param descripcion the descripcion
+     * @return the string [ ]
+     */
     public String[] tokenizacion(String descripcion) {
         descripcion = eliminarStopWords(descripcion);
 
@@ -109,6 +133,12 @@ public class AnalisisBoW {
     }
 
 
+    /**
+     * Detectar estado animo string.
+     *
+     * @param descripcion the descripcion
+     * @return the string
+     */
     public String detectarEstadoAnimo(String descripcion) {
 
         if (descripcion == null) {
@@ -157,6 +187,12 @@ public class AnalisisBoW {
         return "No identificado";
     }
 
+    /**
+     * Detectar categoria tecnica list.
+     *
+     * @param descripcion the descripcion
+     * @return the list
+     */
     public List<String> detectarCategoriaTecnica(String descripcion) {
 
 

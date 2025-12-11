@@ -13,11 +13,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Ticket dao.
+ */
 public class TicketDAO {
 
+    /**
+     * Instantiates a new Ticket dao.
+     */
     public TicketDAO() {
     }
 
+    /**
+     * Insertar string.
+     *
+     * @param ticket the ticket
+     * @return the string
+     */
     public static String insertar(Ticket ticket){
 
         try{
@@ -41,6 +53,11 @@ public class TicketDAO {
         return "";
     }
 
+    /**
+     * Listar list.
+     *
+     * @return the list
+     */
     public static List<Ticket> listar() {
         Connection con = null;
         Statement stmt = null;
@@ -81,6 +98,12 @@ public class TicketDAO {
         return tickets;
     }
 
+    /**
+     * Eliminar boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public static boolean eliminar(int id) {
         Connection con = null;
         Statement stmt = null;
@@ -103,6 +126,12 @@ public class TicketDAO {
 
     }
 
+    /**
+     * Modificar boolean.
+     *
+     * @param ticket the ticket
+     * @return the boolean
+     */
     public static boolean modificar(Ticket ticket) {
         Connection con = null;
         Statement stmt = null;

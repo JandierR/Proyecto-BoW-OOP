@@ -2,6 +2,9 @@ package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 import java.util.Objects;
 
+/**
+ * The type Usuario.
+ */
 public class Usuario {
     private String nombreCompleto;
     private String correo;
@@ -10,6 +13,16 @@ public class Usuario {
     private String rol;
     private int id;
 
+    /**
+     * Instantiates a new Usuario.
+     *
+     * @param nombreCompleto the nombre completo
+     * @param correo         the correo
+     * @param contrasena     the contrasena
+     * @param telefono       the telefono
+     * @param rol            the rol
+     * @param id             the id
+     */
     public Usuario(String nombreCompleto, String correo, String contrasena, String telefono, String rol, int id) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
@@ -19,51 +32,111 @@ public class Usuario {
         this.id = id;
     }
 
+    /**
+     * Gets nombre completo.
+     *
+     * @return the nombre completo
+     */
     public String getNombreCompleto() {
         return nombreCompleto;
     }
 
+    /**
+     * Sets nombre completo.
+     *
+     * @param nombreCompleto the nombre completo
+     */
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
 
+    /**
+     * Gets correo.
+     *
+     * @return the correo
+     */
     public String getCorreo() {
         return correo;
     }
 
+    /**
+     * Sets correo.
+     *
+     * @param correo the correo
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    /**
+     * Gets telefono.
+     *
+     * @return the telefono
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /**
+     * Sets telefono.
+     *
+     * @param telefono the telefono
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    /**
+     * Gets contrasena.
+     *
+     * @return the contrasena
+     */
     public String getContrasena() {
         return contrasena;
     }
 
+    /**
+     * Sets contrasena.
+     *
+     * @param contrasena the contrasena
+     */
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
 
+    /**
+     * Gets rol.
+     *
+     * @return the rol
+     */
     public String getRol() {
         return rol;
     }
 
+    /**
+     * Sets rol.
+     *
+     * @param rol the rol
+     */
     public void setRol(String rol) {
         this.rol = rol;
     }
 
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }

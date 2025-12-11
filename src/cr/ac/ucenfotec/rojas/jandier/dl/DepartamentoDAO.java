@@ -9,10 +9,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Departamento dao.
+ */
 public class DepartamentoDAO {
+    /**
+     * Instantiates a new Departamento dao.
+     */
     public DepartamentoDAO() {
     }
 
+    /**
+     * Insertar string.
+     *
+     * @param departamento the departamento
+     * @return the string
+     */
     public static String insertar(Departamento departamento){
 
         try{
@@ -35,6 +47,11 @@ public class DepartamentoDAO {
         return "";
     }
 
+    /**
+     * Listar list.
+     *
+     * @return the list
+     */
     public static List<Departamento> listar() {
         Connection con = null;
         Statement stmt = null;
@@ -62,6 +79,12 @@ public class DepartamentoDAO {
         return departamentos;
     }
 
+    /**
+     * Eliminar boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public static boolean eliminar(int id) {
         Connection con = null;
         Statement stmt = null;
@@ -84,6 +107,12 @@ public class DepartamentoDAO {
 
     }
 
+    /**
+     * Modificar boolean.
+     *
+     * @param departamento the departamento
+     * @return the boolean
+     */
     public static boolean modificar(Departamento departamento) {
         Connection con = null;
         Statement stmt = null;

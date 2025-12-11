@@ -2,18 +2,36 @@ package cr.ac.ucenfotec.rojas.jandier.bl.entities;
 
 import java.util.Objects;
 
+/**
+ * The type Palabra.
+ */
 public class Palabra {
 
     private String palabra;
 
+    /**
+     * Instantiates a new Palabra.
+     *
+     * @param palabra the palabra
+     */
     public Palabra(String palabra) {
         this.palabra = palabra;
     }
 
+    /**
+     * Gets palabra.
+     *
+     * @return the palabra
+     */
     public String getPalabra() {
         return palabra;
     }
 
+    /**
+     * Sets palabra.
+     *
+     * @param palabra the palabra
+     */
     public void setPalabra(String palabra) {
         this.palabra = palabra;
     }

@@ -6,6 +6,9 @@ import cr.ac.ucenfotec.rojas.jandier.dl.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Gestor usuario.
+ */
 public class GestorUsuario {
 
 //    private Data data;
@@ -14,9 +17,17 @@ public class GestorUsuario {
 //        this.data = data;
 //    }
 
+    /**
+     * Instantiates a new Gestor usuario.
+     */
     public GestorUsuario() {
     }
 
+    /**
+     * Obtener usuarios list.
+     *
+     * @return the list
+     */
     public List<String> obtenerUsuarios() {
 
         List<Usuario> usuarios = UsuarioDAO.listar();
@@ -34,7 +45,18 @@ public class GestorUsuario {
 
     }
 
-    //Este metodo registra los usuarios con base a sus atributos ingresados como parametros (argumentos en ejecuicion)
+    /**
+     * Registrar usuario string.
+     *
+     * @param nombre     the nombre
+     * @param correo     the correo
+     * @param contrasena the contrasena
+     * @param telefono   the telefono
+     * @param rol        the rol
+     * @param id         the id
+     * @return the string
+     */
+//Este metodo registra los usuarios con base a sus atributos ingresados como parametros (argumentos en ejecuicion)
     public String registrarUsuario(String nombre, String correo, String contrasena, String telefono, String rol, int id) {
 
         boolean existeUsuario = existeUsuario( id);
@@ -49,7 +71,13 @@ public class GestorUsuario {
     }
 
 
-    //Este metodo verifica si existe un usuario en la listaUsuario con el ID pasado como argumento
+    /**
+     * Existe usuario boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+//Este metodo verifica si existe un usuario en la listaUsuario con el ID pasado como argumento
     public boolean existeUsuario( int id) {
         List<Usuario> usuarios = UsuarioDAO.listar();
         for (Usuario usuario : usuarios) {
@@ -62,7 +90,13 @@ public class GestorUsuario {
         return false;
     }
 
-    //Este metodo no se puede utilizar en el UI. Sin embargo, si se puede utilizar en el ticketManager
+    /**
+     * Buscar por id usuario.
+     *
+     * @param id the id
+     * @return the usuario
+     */
+//Este metodo no se puede utilizar en el UI. Sin embargo, si se puede utilizar en el ticketManager
     //Este metodo busca en la listaUsuario un usuario con el id ingresado como argumento
     public Usuario buscarPorId(int id) {
         List<Usuario> usuarios = UsuarioDAO.listar();
@@ -76,11 +110,23 @@ public class GestorUsuario {
         return null;
     }
 
+    /**
+     * Eliminar usuario string.
+     *
+     * @param id the id
+     * @return the string
+     */
     public String eliminarUsuario(int id) {
         boolean eliminado = UsuarioDAO.eliminar(id);
         return eliminado ? "Usuario eliminado correctamente" : "No se encontro ese usuario";
     }
 
+    /**
+     * Modificar usuario string.
+     *
+     * @param usuario the usuario
+     * @return the string
+     */
     public String modificarUsuario(Usuario usuario) {
         boolean modificado = UsuarioDAO.modificar(usuario);
         return modificado ? "Usuario modificado exitosamente" : "No se encontro ese usuario";

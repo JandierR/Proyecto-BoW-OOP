@@ -10,8 +10,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Usuario dao.
+ */
 public class UsuarioDAO {
 
+    /**
+     * Insertar string.
+     *
+     * @param usuario the usuario
+     * @return the string
+     */
     public static String insertar(Usuario usuario) {
         /* CODIGO PARA SOLICITAR EL NOMBRE, LA CÉDULA Y LA EDAD DE UNA PERSONA. USANDO TRES VARIABLES.*/
         /* CODIGO PARA SOLICITAR EL NOMBRE, LA CÉDULA Y LA EDAD DE UNA PERSONA. USANDO TRES VARIABLES.*/
@@ -37,6 +46,11 @@ public class UsuarioDAO {
         return "";
     }
 
+    /**
+     * Listar list.
+     *
+     * @return the list
+     */
     public static List<Usuario> listar() {
         Connection con = null;
         Statement stmt = null;
@@ -66,6 +80,12 @@ public class UsuarioDAO {
         return usuarios;
     }
 
+    /**
+     * Eliminar boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public static boolean eliminar(int id) {
         Connection con = null;
         Statement stmt = null;
@@ -88,6 +108,12 @@ public class UsuarioDAO {
 
     }
 
+    /**
+     * Modificar boolean.
+     *
+     * @param usuario the usuario
+     * @return the boolean
+     */
     public static boolean modificar(Usuario usuario) {
         Connection con = null;
         Statement stmt = null;

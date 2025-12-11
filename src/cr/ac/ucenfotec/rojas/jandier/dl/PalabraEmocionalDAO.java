@@ -9,11 +9,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Palabra emocional dao.
+ */
 public class PalabraEmocionalDAO {
 
+    /**
+     * Instantiates a new Palabra emocional dao.
+     */
     public PalabraEmocionalDAO() {
     }
 
+    /**
+     * Insertar string.
+     *
+     * @param palabraEmocional the palabra emocional
+     * @return the string
+     */
     public static String insertar(PalabraEmocional palabraEmocional){
 
         try{
@@ -36,6 +48,11 @@ public class PalabraEmocionalDAO {
         return "";
     }
 
+    /**
+     * Listar list.
+     *
+     * @return the list
+     */
     public static List<PalabraEmocional> listar() {
         Connection con = null;
         Statement stmt = null;
@@ -61,6 +78,12 @@ public class PalabraEmocionalDAO {
         return palabrasEmocionales;
     }
 
+    /**
+     * Eliminar boolean.
+     *
+     * @param palabra the palabra
+     * @return the boolean
+     */
     public static boolean eliminar(String palabra) {
         Connection con = null;
         Statement stmt = null;
@@ -83,6 +106,12 @@ public class PalabraEmocionalDAO {
 
     }
 
+    /**
+     * Modificar boolean.
+     *
+     * @param palabraEmocional the palabra emocional
+     * @return the boolean
+     */
     public static boolean modificar(PalabraEmocional palabraEmocional) {
         Connection con = null;
         Statement stmt = null;

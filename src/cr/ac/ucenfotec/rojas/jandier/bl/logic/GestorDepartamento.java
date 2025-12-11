@@ -6,13 +6,23 @@ import cr.ac.ucenfotec.rojas.jandier.dl.DepartamentoDAO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Gestor departamento.
+ */
 public class GestorDepartamento {
 
+    /**
+     * Instantiates a new Gestor departamento.
+     */
     public GestorDepartamento() {
     }
 
 
-
+    /**
+     * Obtener departamentos list.
+     *
+     * @return the list
+     */
     public List<String> obtenerDepartamentos() {
 
         List<String> resultado = new ArrayList<>();
@@ -28,7 +38,16 @@ public class GestorDepartamento {
         return resultado;
     }
 
-    //Este metodo registrarDepartamento se utiliza en la UI, en otro metodo llamado registrarDepartamento.
+    /**
+     * Registrar departamento string.
+     *
+     * @param nombreDepartamento the nombre departamento
+     * @param descripcion        the descripcion
+     * @param correo             the correo
+     * @param id                 the id
+     * @return the string
+     */
+//Este metodo registrarDepartamento se utiliza en la UI, en otro metodo llamado registrarDepartamento.
     //El mismo permite agregar a listaDepartamento el nuevo departamento registrado desde Controller de la UI.
     public String registrarDepartamento(String nombreDepartamento, String descripcion, String correo, int id) {
 
@@ -45,9 +64,13 @@ public class GestorDepartamento {
     }
 
 
-
-
-    //Este metodo verifica si existe algun departamento de la listaDepartamento con el ID que se pasa como parametro (argumento en ejecucion)
+    /**
+     * Existe departamento boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+//Este metodo verifica si existe algun departamento de la listaDepartamento con el ID que se pasa como parametro (argumento en ejecucion)
     public boolean existeDepartamento( int id) {
         List<Departamento> departamentos = DepartamentoDAO.listar();
         for (Departamento departamento : departamentos) {
@@ -60,7 +83,13 @@ public class GestorDepartamento {
         return false;
     }
 
-    //Este metodo busca en la listaDepartamento el departamento con el ID ingresado.
+    /**
+     * Buscar por id departamento.
+     *
+     * @param id the id
+     * @return the departamento
+     */
+//Este metodo busca en la listaDepartamento el departamento con el ID ingresado.
     public Departamento buscarPorId(int id) {
         List<Departamento> departamentos = DepartamentoDAO.listar();
 
@@ -74,11 +103,23 @@ public class GestorDepartamento {
         return null;
     }
 
+    /**
+     * Eliminar departamento string.
+     *
+     * @param id the id
+     * @return the string
+     */
     public String eliminarDepartamento(int id) {
         boolean eliminado = DepartamentoDAO.eliminar(id);
         return eliminado ? "Departamento eliminado correctamente" : "No se encontro ese departamento";
     }
 
+    /**
+     * Modificar departamento string.
+     *
+     * @param departamento the departamento
+     * @return the string
+     */
     public String modificarDepartamento(Departamento departamento) {
         boolean modificado = DepartamentoDAO.modificar(departamento);
         return modificado ? "Departamento modificado exitosamente" : "No se encontro ese departamento";
