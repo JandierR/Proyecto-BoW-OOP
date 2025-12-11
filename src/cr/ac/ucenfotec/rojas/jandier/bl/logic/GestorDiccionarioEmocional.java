@@ -31,6 +31,16 @@ public class GestorDiccionarioEmocional {
         return "Palabra emocional registrada exitosamente!";
     }
 
+    public String eliminarPalabraEmocional(String palabra) {
+        boolean eliminado = PalabraEmocionalDAO.eliminar(palabra);
+        return eliminado ? "Palabra emocional eliminada correctamente" : "No se encontró esa palabra emocional";
+    }
+
+    public String modificarPalabraEmocional(PalabraEmocional palabraEmocional) {
+        boolean modificado = PalabraEmocionalDAO.modificar(palabraEmocional);
+        return modificado ? "Palabra emocional modificada exitosamente" : "No se encontró esa palabra emocional";
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;

@@ -30,6 +30,16 @@ public class GestorDiccionarioTecnico {
         return "Palabra técnica registrada exitosamente";
     }
 
+    public String eliminarPalabraTecnica(String palabra) {
+        boolean eliminado = PalabraTecnicaDAO.eliminar(palabra);
+        return eliminado ? "Palabra técnica eliminada correctamente" : "No se encontró esa palabra técnica";
+    }
+
+    public String modificarPalabraTecnica(PalabraTecnica palabraTecnica) {
+        boolean modificado =  PalabraTecnicaDAO.modificar(palabraTecnica);
+        return modificado ? "Palabra técnica modificada exitosamente" : "No se encontró esa palabra técnica";
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;

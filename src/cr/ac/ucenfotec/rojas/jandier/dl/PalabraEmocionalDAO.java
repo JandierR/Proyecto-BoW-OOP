@@ -60,4 +60,49 @@ public class PalabraEmocionalDAO {
         }
         return palabrasEmocionales;
     }
+
+    public static boolean eliminar(String palabra) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "DELETE FROM PalabraEmocional WHERE palabra = '" + palabra + "'";
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+    }
+
+    public static boolean modificar(PalabraEmocional palabraEmocional) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "UPDATE PalabraEmocional SET "
+                    + "tipoEmocion = '" + palabraEmocional.getTipo() + "' "
+                    + "WHERE palabra  = '" + palabraEmocional.getPalabra() + "'";
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }

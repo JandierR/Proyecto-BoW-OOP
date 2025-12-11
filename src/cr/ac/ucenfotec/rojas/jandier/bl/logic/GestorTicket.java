@@ -53,6 +53,16 @@ public class GestorTicket {
         return "Ticket registrado exitosamente";
     }
 
+    public String eliminarTicket(int id) {
+        boolean eliminado = TicketDAO.eliminar(id);
+        return eliminado ? "Ticket eliminado correctamente" : "No se encontro ese ticket";
+    }
+
+    public String modificarTicket(Ticket ticket) {
+        boolean modificado = TicketDAO.modificar(ticket);
+        return modificado ? "Ticket modificado exitosamente" : "No se encontro ese ticket";
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;

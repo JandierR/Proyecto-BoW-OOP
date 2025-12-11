@@ -81,6 +81,16 @@ public class GestorDepartamento {
         return null;
     }
 
+    public String eliminarDepartamento(int id) {
+        boolean eliminado = DepartamentoDAO.eliminar(id);
+        return eliminado ? "Departamento eliminado correctamente" : "No se encontro ese departamento";
+    }
+
+    public String modificarDepartamento(Departamento departamento) {
+        boolean modificado = DepartamentoDAO.modificar(departamento);
+        return modificado ? "Departamento modificado exitosamente" : "No se encontro ese departamento";
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;

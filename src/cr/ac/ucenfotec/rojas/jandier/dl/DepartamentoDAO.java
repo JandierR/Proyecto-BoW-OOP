@@ -62,4 +62,51 @@ public class DepartamentoDAO {
         return departamentos;
     }
 
+    public static boolean eliminar(int id) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "DELETE FROM Departamento WHERE id = " + id;
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+
+    }
+
+    public static boolean modificar(Departamento departamento) {
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String conString = "jdbc:sqlserver://localhost:1433;DatabaseName=HelpDeskU;user=sa;password=Lolypop88*;encrypt=false";
+            con = DriverManager.getConnection(conString);
+
+            stmt = con.createStatement();
+
+            String query = "UPDATE Departamento SET "
+                    + "nombreDepartamento = '" + departamento.getNombreDepartamento() + "', "
+                    + "descripcion = '" + departamento.getDescripcion() + "', "
+                    + "correo = '" + departamento.getCorreo() + "' "
+                    + "WHERE id  = " + departamento.getId();
+
+            int filas = stmt.executeUpdate(query);
+            return filas > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
 }
