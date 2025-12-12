@@ -79,6 +79,7 @@ public class AnalisisBoW {
                 }
             }
             if (!esStopWord) {
+                //Agrega espacio a todos las palabras que no son stopWord
                 resultado.append(palabra).append(" ");
             }
         }
