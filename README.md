@@ -12,9 +12,9 @@ Representar entidades del sistema (como Usuario, Departamento y Ticket).
 
 Controlar la lógica de negocio mediante gestores dedicados.
 
-Administrar las colecciones internas mediante la clase Data.
+Administrar las colecciones internas mediante la base de datos de cada entidad.
 
-Preparar la base para futuras funcionalidades como el análisis de Bag of Words.
+Aplicar la funcionalidad principal del analisis de bag of words en la clase clase AnalisisBoW
 
 Estructura del Proyecto
 
@@ -29,6 +29,8 @@ Usuario
 Departamento
 
 Ticket
+
+Palabra
 
 PalabraEmocional
 
@@ -50,21 +52,29 @@ GestorDiccionarioEmocional
 
 GestorDiccionarioTecnico
 
+AnalisisBoW
+
+Login
+
 Cada gestor encapsula la lógica necesaria para registrar, buscar y validar objetos del sistema utilizando los datos almacenados.
+
+Además, el analisisBoW tiene lugar en esta capa porque es la que permite lograr toda la lógica por detrás para llevar a cabo el bag of words
+
+Incluso, la clase Login quien permite que se lleve a cabo un proceso de inicio de sesión en el sistema.
 
 3. Gestión de Datos (Data Layer)
 
-La clase Data funciona como un contenedor centralizado para las colecciones del sistema. Actúa como un repositorio simple en memoria para almacenar y recuperar listas de:
+Esta capa contiene las bases de dato de cada entidad y sus conexiones, manteniendo sus métodos esenciales en relación con la base de datos. Las clases de cada entidad son:
 
-Usuarios
+UsuarioDAO
 
-Departamentos
+DepartamentoDAO
 
-Tickets
+TicketDAO
 
-Palabras emocionales
+PalabrasEmocionalDAO
 
-Palabras técnicas
+PalabraTecnicaDAO
 
 4. Módulos Adicionales
 
@@ -78,18 +88,25 @@ Organización clara por responsabilidades.
 
 Facilidad para extender el proyecto con nuevas funcionalidades.
 
-Preparación para integrar procesamiento de Bag of Words en versiones futuras.
-
 Cómo Usar este Proyecto
 
 Este repositorio no se ejecuta por sí solo. Debe ser utilizado como dependencia del repositorio UI, el cual se encarga de solicitar datos y mostrar resultados al usuario.
 
-Para utilizar la capa Domain en otro proyecto:
+Instrucciones de ejecución:
 
-1. Importar las clases del paquete correspondiente.
+Ejecuta la clase Main desde el proyecto UI.
 
-2. Instanciar Data.
+Al ejecutar, iniciar sesión o registrar un usuario.
 
-3. Crear los distintos managers pasando Data como dependencia.
+Al iniciar, el sistema mostrará el menú principal con las opciones disponibles:
 
-4. Llamar sus métodos para registrar u obtener información del sistema.
+1. Registrar usuario
+
+2. Registrar departamento
+
+3. Listar tickets, etc.
+
+Seguir las instrucciones que hay en la consola cuando se ingresa una opción del menú. Siempre darle enter cada vez que ingresa información que se le pide, hasta que se le indique exitosamente su pedido.
+
+Cuando desee terminar el programa, simplemente digite la opción de salida, que sería la número 0 en el menú. 
+
